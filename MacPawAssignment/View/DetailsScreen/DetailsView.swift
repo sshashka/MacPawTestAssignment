@@ -60,7 +60,7 @@ final class DetailsView: UIViewController {
 extension DetailsView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.data?.count ?? 1
+        return presenter.data?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -69,10 +69,6 @@ extension DetailsView: UITableViewDelegate, UITableViewDataSource {
         if let data = presenter.data {
             cell.textLabel?.text = data[indexPath.row]
         }
-        else {
-            cell.textLabel?.text = "No data"
-        }
-        
         return cell
     }
     
